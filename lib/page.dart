@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:myapp/home.dart';
+import 'package:myapp/login.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           MaterialButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginScreen()));
           },
           color: Colors.blue,
           textColor: Colors.white,

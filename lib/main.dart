@@ -2,21 +2,32 @@ import 'dart:async';
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/home.dart';
+import 'package:myapp/login.dart';
 import 'package:myapp/page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:otpless_flutter/otpless_flutter.dart';
 
 
 void main() => runApp(new MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  const MaterialApp(
       color: Colors.blue,
-      home: Splash(),
+      //home: Splash(),
+      home: LoginScreen(),
     );
   }
 }
+
+
+
 
 class Splash extends StatefulWidget {
   @override
@@ -24,21 +35,46 @@ class Splash extends StatefulWidget {
 }
 
 class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
+
+
+
+  String _waId = 'Unknown';
+  final _otplessFlutterPlugin = Otpless();
+
+  @override
+  void initState() {
+  super.initState();
+  initPlatformState();
+  }
+
+  // ** Function that is called when page is loaded
+  // ** We can check the auth state in this function
+  Future<void> initPlatformState() async {
+    _otplessFlutterPlugin.authStream.listen((token) {
+    setState(() {
+      _waId = token ?? "Unknown";
+      // Send the waId to your server and pass the waId in getUserDetail API to retrieve the user detail.
+      // Handle the signup/signin process here
+      });
+    });
+  }
+
+
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool _seen = (prefs.getBool('seen') ?? false);
 
     if (_seen) {
       Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => new HomeScreen()));
+          MaterialPageRoute(builder: (context) => const HomeScreen()));
     } else {
       await prefs.setBool('seen', true);
       Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => new SplashScreen()));
+          MaterialPageRoute(builder: (context) => const SplashScreen()));
     }
   }
 
-@override
+  @override
   void afterFirstLayout(BuildContext context) => checkFirstSeen();
 
   @override
@@ -50,6 +86,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     );
   }
 }
+
 
 
 
