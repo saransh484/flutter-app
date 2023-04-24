@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:myapp/home.dart';
 import 'package:myapp/page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:myapp/search_page.dart';
 
-
-void main() => runApp(new MyApp());
+void main() {
+  runApp(MaterialApp(
+    title: 'My App',
+    home: SearchPage(),
+  ));
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       color: Colors.blue,
       home: Splash(),
     );
@@ -38,7 +43,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     }
   }
 
-@override
+  @override
   void afterFirstLayout(BuildContext context) => checkFirstSeen();
 
   @override
@@ -50,7 +55,6 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     );
   }
 }
-
 
 
 /*
