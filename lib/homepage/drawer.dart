@@ -1,6 +1,8 @@
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:myapp/sell/page.dart';
 
 class DrawerScreen extends StatefulWidget {
   const DrawerScreen({super.key});
@@ -23,17 +25,14 @@ class _DrawerScreenState extends State<DrawerScreen> {
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.blueAccent),
                 accountName: Text(
-                  "NAME NAME",
+                  "Saransh Bhatnagar",
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: Text("email@example.com"),
+                accountEmail: Text("saranshbai20@svvv.edu.in"),
                 currentAccountPictureSize: Size.square(50),
                 currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  child: Text(
-                    "N",
-                    style: TextStyle(fontSize: 30.0, color: Colors.white),
-                  ), //Text
+                  backgroundImage: AssetImage('assets/image.png'),
+                  radius: 5,
                 ), //circleAvatar
               ), //UserAccountDrawerHeader
             ), //DrawerHeader
@@ -55,7 +54,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               leading: const Icon(Icons.sell),
               title: const Text('Sell'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const HivePage()));
               },
             ),
             ListTile(
@@ -63,6 +62,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
               title: const Text('History'),
               onTap: () {
                 Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Logout'),
+              onTap: () {
+                FirebaseAuth.instance.signOut();
               },
             ),
           ],
