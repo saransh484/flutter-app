@@ -26,12 +26,10 @@ bash
 
 3. Install the required packages and dependencies using Flutter:
 
-arduino
 
 `flutter pub get`
 
 4. Run the app on your device or emulator:
 
-arduino
 
 `flutter run`
