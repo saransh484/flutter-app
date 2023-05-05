@@ -1,16 +1,37 @@
-# myapp
+# Medicine Reselling App
 
-A new Flutter project.
+This is a mobile application for reselling unused or unexpired medicines. The app is developed using Flutter framework and it is compatible with both Android and iOS platforms.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Users can register and login with their email and password.
+- Users can upload medicines they want to sell, along with the quantity.
+- Users can search for available medicines based on name, category or location.
+- Users can view the details of the medicine, including the name, expiry date, price, and location of the seller.
+- Users can contact the seller through the app to purchase the medicine.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Clone the repository to your local machine using Git:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+bash
+
+`git clone https://github.com/saransh484/flutter-app.git`
+
+2. Navigate to the project directory:
+
+bash
+
+`cd flutter-app`
+
+3. Install the required packages and dependencies using Flutter:
+
+arduino
+
+`flutter pub get`
+
+4. Run the app on your device or emulator:
+
+arduino
+
+`flutter run`
