@@ -14,22 +14,17 @@ This is a mobile application for reselling unused or unexpired medicines. The ap
 
 1. Clone the repository to your local machine using Git:
 
-bash
 
 `git clone https://github.com/saransh484/flutter-app.git`
 
 2. Navigate to the project directory:
 
-bash
-
 `cd flutter-app`
 
 3. Install the required packages and dependencies using Flutter:
 
-
 `flutter pub get`
 
 4. Run the app on your device or emulator:
-
 
 `flutter run`
