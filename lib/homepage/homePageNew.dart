@@ -6,10 +6,12 @@ import 'package:myapp/homepage/drawer.dart';
 import 'package:myapp/login/auth.dart';
 import 'package:myapp/sell/page.dart';
 
-
-
 class MyHomePage extends StatefulWidget {
-  MyHomePage({super.key, required this.title, required this.name, required this.email});
+  MyHomePage(
+      {super.key,
+      required this.title,
+      required this.name,
+      required this.email});
 
   final String title;
   final String name;
@@ -19,12 +21,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
-
-
-
 class _MyHomePageState extends State<MyHomePage> {
-
-  
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -35,37 +32,36 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Container(
             decoration: const BoxDecoration(
-                gradient:  LinearGradient(colors: [
-            Color(0xFF448AFF),
+                gradient: LinearGradient(colors: [
+              Color(0xFF448AFF),
               Color(0xFF26CBE6),
             ], begin: Alignment.topCenter, end: Alignment.center)),
           ),
-           Scaffold(
+          Scaffold(
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(40.0), // here the desired height
-              child: AppBar()),
+                preferredSize: Size.fromHeight(40.0), // here the desired height
+                child: AppBar()),
             backgroundColor: Colors.transparent,
-            body:  Container(
-              child:  Stack(
+            body: Container(
+              child: Stack(
                 children: <Widget>[
-                   Align(
+                  Align(
                     alignment: Alignment.center,
-                    child:  Padding(
-                      padding:  EdgeInsets.only(top: _height / 10),
-                      child:  Column(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: _height / 10),
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                           CircleAvatar(
-                            backgroundImage:
-                                 AssetImage('assets/image.png'),
+                          CircleAvatar(
+                            backgroundImage: AssetImage('assets/image.png'),
                             radius: _height / 10,
                           ),
-                           SizedBox(
+                          SizedBox(
                             height: _height / 30,
                           ),
-                           Text(
+                          Text(
                             'Saransh Bhatnagar',
-                            style:  const TextStyle(
+                            style: const TextStyle(
                                 fontSize: 18.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
@@ -74,88 +70,98 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                   Padding(
-                    padding:  EdgeInsets.only(top: _height / 2.2),
-                    child:  Container(
+                  Padding(
+                    padding: EdgeInsets.only(top: _height / 2.2),
+                    child: Container(
                       color: Colors.white,
                     ),
                   ),
-                   Padding(
-                    padding:  EdgeInsets.only(
+                  Padding(
+                    padding: EdgeInsets.only(
                         top: _height / 2.6,
                         left: _width / 20,
                         right: _width / 20),
-                    child:  Column(
+                    child: Column(
                       children: <Widget>[
-                         Padding(
+                        Padding(
                           padding: EdgeInsets.only(top: _height / 10),
-                          child:  Column(
+                          child: Column(
                             children: <Widget>[
-                              infoChild(
-                                  _width, Icons.email, 'saranshbai20@svvv.edu.in'),
+                              infoChild(_width, Icons.email,
+                                  'saranshbai20@svvv.edu.in'),
                               infoChild(_width, Icons.call, '+91-9827084169'),
-                               Column(  
-                                 children: [
-                                   InkWell(
+                              Column(
+                                children: [
+                                  InkWell(
                                     onTap: () {
-                                      // Navigator.push(context, MaterialPageRoute(builder: (context)=> const HivePage()));
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //         builder: (context) =>
+                                      //             HivePage()));
                                     },
                                     child: Padding(
-                                    padding:  EdgeInsets.only(top: _height / 30),
-                                    child:  Container(
-                                      width: _width / 3,
-                                      height: _height / 20,
-                                      decoration:  BoxDecoration(
-                                          color: const Color(0xFF26CBE6),
-                                          borderRadius:  BorderRadius.all(
-                                               Radius.circular(_height / 40)),
-                                          boxShadow: const [
-                                             BoxShadow(
-                                                color: Colors.black87,
-                                                blurRadius: 2.0,
-                                                offset:  Offset(0.0, 1.0))
-                                          ]),
-                                      child:  const Center(
-                                        child:  Text('Buy',
-                                            style:  TextStyle(
-                                                fontSize: 16.0,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold)),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      InkWell(
-                                        onTap: (){
-                                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const HivePage()));
-                                        },
-                                        child: Padding(
-                                        padding:  EdgeInsets.only(top: _height / 30),
-                                        child:  Container(
-                                          width: _width / 3,
-                                          height: _height / 20,
-                                          decoration:  BoxDecoration(
-                                              color: const Color(0xFF26CBE6),
-                                              borderRadius:  BorderRadius.all(
-                                                  Radius.circular(_height / 40)),
-                                              boxShadow: const [
-                                                BoxShadow(
-                                                    color: Colors.black87,
-                                                    blurRadius: 2.0,
-                                                    offset:  Offset(0.0, 1.0))
-                                              ]),
-                                          child:  const Center(
-                                            child:  Text('Sell',
-                                                style:  TextStyle(
-                                                    fontSize: 16.0,
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold)), 
-                                          ),
+                                      padding:
+                                          EdgeInsets.only(top: _height / 30),
+                                      child: Container(
+                                        width: _width / 3,
+                                        height: _height / 20,
+                                        decoration: BoxDecoration(
+                                            color: const Color(0xFF26CBE6),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(_height / 40)),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                  color: Colors.black87,
+                                                  blurRadius: 2.0,
+                                                  offset: Offset(0.0, 1.0))
+                                            ]),
+                                        child: const Center(
+                                          child: Text('Buy',
+                                              style: TextStyle(
+                                                  fontSize: 16.0,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold)),
                                         ),
                                       ),
-                                    )
-                                 ],
-                               )
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const HivePage()));
+                                    },
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.only(top: _height / 30),
+                                      child: Container(
+                                        width: _width / 3,
+                                        height: _height / 20,
+                                        decoration: BoxDecoration(
+                                            color: const Color(0xFF26CBE6),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(_height / 40)),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                  color: Colors.black87,
+                                                  blurRadius: 2.0,
+                                                  offset: Offset(0.0, 1.0))
+                                            ]),
+                                        child: const Center(
+                                          child: Text('Sell',
+                                              style: TextStyle(
+                                                  fontSize: 16.0,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold)),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              )
                             ],
                           ),
                         )
@@ -172,16 +178,16 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget headerChild(String header, int value) =>  Expanded(
-          child:  Column(
+  Widget headerChild(String header, int value) => Expanded(
+          child: Column(
         children: <Widget>[
-           Text(header),
-           const SizedBox(
+          Text(header),
+          const SizedBox(
             height: 8.0,
           ),
-           Text(
+          Text(
             '$value',
-            style:  const TextStyle(
+            style: const TextStyle(
                 fontSize: 14.0,
                 color: Color(0xFF26CBE6),
                 fontWeight: FontWeight.bold),
@@ -189,23 +195,23 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ));
 
-  Widget infoChild(double width, IconData icon, data) =>  Padding(
-        padding:  const EdgeInsets.only(bottom: 8.0),
-        child:  InkWell(
-          child:  Row(
+  Widget infoChild(double width, IconData icon, data) => Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: InkWell(
+          child: Row(
             children: <Widget>[
-               SizedBox(
+              SizedBox(
                 width: width / 10,
               ),
-               Icon(
+              Icon(
                 icon,
                 color: const Color(0xFF26CBE6),
                 size: 36.0,
               ),
-               SizedBox(
+              SizedBox(
                 width: width / 20,
               ),
-               Text(data)
+              Text(data)
             ],
           ),
           onTap: () {
