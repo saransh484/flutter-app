@@ -1,29 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:myapp/Search/productview.dart';
 
 class Product {
-  final String name;
-  final String description;
-  final String imageUrl;
+  final  name;
+  final  description;
+  final  imageUrl;
 
   Product(
       {required this.name, required this.description, required this.imageUrl});
 }
 
 class SearchPage extends StatefulWidget {
+  const SearchPage({Key? key}) : super(key: key);
   @override
   _SearchPageState createState() => _SearchPageState();
 }
 
 class _SearchPageState extends State<SearchPage> {
+  List<Map<String, dynamic>> _items = [];
+
+  final _shoppingBox = Hive.box('Medbox');
+
+  void _refreshItems() {
+    final data = _shoppingBox.keys.map((key) {
+      final value = _shoppingBox.get(key);
+      print(value);
+      return {"key": key, "name": value["name"], "quantity": value['quantity']};
+    }).toList();
+
+    setState(() {
+      _items = data.reversed.toList();
+      // we use "reversed" to sort items in order from the latest to the oldest
+    });
+  }
+
+  _readItem() {
+    final item = _shoppingBox.get('name');
+    return Text(item.toString());
+  }
+
   final TextEditingController searchController = TextEditingController();
   String searchText = "";
 
   List<Product> products = [
+    // Product(name: _readItem(), description:"", imageUrl: ""),
     Product(
         name: "Advil",
         description:
             "It is used to relieve pain, reduce fever, and reduce inflammation.",
-        imageUrl: "https://via.placeholder.com/150"),
+        imageUrl: "https://www.mediafire.com/view/v2jv22jsthfpnua/tablet.jpg/file#"),
     Product(
         name: "Tylenol",
         description:
@@ -40,7 +66,7 @@ class _SearchPageState extends State<SearchPage> {
             "It is used to treat depression, anxiety, and obsessive-compulsive disorder (OCD).",
         imageUrl: "https://via.placeholder.com/150"),
     Product(
-        name: "Paracetamo;",
+        name: "Paracetamol",
         description: " It is used for pain relief and fever reduction..",
         imageUrl: "https://via.placeholder.com/150"),
     Product(
@@ -76,6 +102,7 @@ class _SearchPageState extends State<SearchPage> {
   void initState() {
     super.initState();
     filteredProducts = products;
+    _refreshItems();
   }
 
   void filterProducts(String query) {
@@ -116,9 +143,13 @@ class _SearchPageState extends State<SearchPage> {
               itemCount: filteredProducts.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  leading: Image.network(filteredProducts[index].imageUrl),
+                  leading: Image.asset('assets/tablet.jpg'),
                   title: Text(filteredProducts[index].name),
                   subtitle: Text(filteredProducts[index].description),
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => ProductPage(description: filteredProducts[index].description, imageUrl: '', name: filteredProducts[index].name,)));
+                  },
                 );
               },
             ),

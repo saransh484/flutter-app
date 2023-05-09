@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
 
+
 class ProductPage extends StatefulWidget {
-  const ProductPage({Key? key}) : super(key: key);
+  final String name;
+  final String description;
+  final String imageUrl;
+  
+  ProductPage(
+      {required this.name, required this.description, required this.imageUrl});
 
   @override
-  _ProductPageState createState() => _ProductPageState();
+  State<StatefulWidget> createState() {
+    return _ProductPageState(name, description, imageUrl);
+  }
 }
 
 class _ProductPageState extends State<ProductPage> {
+
+  final String name;
+  final String description;
+  final String imageUrl;
+   _ProductPageState(this.name, this.description, this.imageUrl);
+
+
   int _rating = 0;
 
   void _incrementRating() {
@@ -32,8 +47,7 @@ class _ProductPageState extends State<ProductPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Image.network(
-              'https://via.placeholder.com/150',
+            child: Image.asset('assets/tablet.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -42,17 +56,17 @@ class _ProductPageState extends State<ProductPage> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Product Name',
+              children:[
+                Text(
+                  name,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 8),
-                const Text(
-                  'Product Description',
+                SizedBox(height: 8),
+                Text(
+                  description,
                   style: TextStyle(
                     fontSize: 16,
                   ),

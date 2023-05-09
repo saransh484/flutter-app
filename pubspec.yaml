@@ -74,6 +74,7 @@ flutter:
     - assets/pharMa.png
     - assets/bg.png
     - assets/google.png
+    - assets/tablet.jpg
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

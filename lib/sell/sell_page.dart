@@ -13,6 +13,7 @@ class _HivePageState extends State<HivePage> {
   List<Map<String, dynamic>> _items = [];
   
   final _shoppingBox = Hive.box('Medbox');
+  
 
   @override
   void initState() {

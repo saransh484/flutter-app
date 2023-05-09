@@ -2,7 +2,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:myapp/sell/page.dart';
+import 'package:myapp/Search/search_page.dart';
+import 'package:myapp/sell/sell_page.dart';
 
 class DrawerScreen extends StatefulWidget {
   const DrawerScreen({super.key});
@@ -47,7 +48,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               leading: const Icon(Icons.trolley),
               title: const Text('Buy'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchPage()));
               },
             ),
             ListTile(

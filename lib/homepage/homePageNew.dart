@@ -1,10 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:myapp/Search/productview.dart';
+import 'package:myapp/Search/search_page.dart';
 import 'package:myapp/homepage/drawer.dart';
-import 'package:myapp/login/auth.dart';
-import 'package:myapp/sell/page.dart';
+import 'package:myapp/sell/sell_page.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage(
@@ -39,8 +37,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Scaffold(
             appBar: PreferredSize(
-                preferredSize: Size.fromHeight(40.0), // here the desired height
-                child: AppBar()),
+                preferredSize: Size.fromHeight(50.0), // here the desired height
+                child: AppBar(
+                //   actions: <Widget>[
+                //   InkWell(
+                //     child: Icon(Icons.search),
+                //     onTap: () {
+                //       Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //               builder: (context) => SearchPage()));
+                //     },
+                //   )
+                // ]
+                )),
             backgroundColor: Colors.transparent,
             body: Container(
               child: Stack(
@@ -59,9 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           SizedBox(
                             height: _height / 30,
                           ),
-                          Text(
+                          const Text(
                             'Saransh Bhatnagar',
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 18.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
@@ -94,11 +104,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                 children: [
                                   InkWell(
                                     onTap: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //         builder: (context) =>
-                                      //             HivePage()));
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SearchPage()));
                                     },
                                     child: Padding(
                                       padding:
