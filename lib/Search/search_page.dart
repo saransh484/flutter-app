@@ -4,11 +4,12 @@ import 'package:PharMa/Search/productview.dart';
 
 class Product {
   final  name;
-  final  description;
+  final  price;
   final  imageUrl;
+  final  brand;
 
   Product(
-      {required this.name, required this.description, required this.imageUrl});
+      {required this.name, required this.price, required this.imageUrl, required this.brand});
 }
 
 class SearchPage extends StatefulWidget {
@@ -44,56 +45,66 @@ class _SearchPageState extends State<SearchPage> {
   String searchText = "";
 
   List<Product> products = [
-    // Product(name: _readItem(), description:"", imageUrl: ""),
+    // Product(name: _readItem(), price:"", imageUrl: ""),
     Product(
         name: "Advil",
-        description:
-            "It is used to relieve pain, reduce fever, and reduce inflammation.",
-        imageUrl: "https://www.mediafire.com/view/v2jv22jsthfpnua/tablet.jpg/file#"),
+        price:
+            '50',
+        imageUrl: "https://www.mediafire.com/view/v2jv22jsthfpnua/tablet.jpg/file#",
+        brand: 'Albert David',),
     Product(
         name: "Tylenol",
-        description:
-            "It is used to treat mild to moderate pain and reduce fever.",
-        imageUrl: "https://via.placeholder.com/150"),
+        price:
+            '15',
+        imageUrl: "https://via.placeholder.com/150",
+        brand: "Triokka"),
     Product(
         name: "Lipitor",
-        description:
-            "It is used to lower cholesterol levels and reduce the risk of heart attack and stroke.",
-        imageUrl: "https://via.placeholder.com/150"),
+        price:
+            '45',
+        imageUrl: "https://via.placeholder.com/150",
+        brand: "Albert David"),
     Product(
         name: "Zoloft",
-        description:
-            "It is used to treat depression, anxiety, and obsessive-compulsive disorder (OCD).",
-        imageUrl: "https://via.placeholder.com/150"),
+        price:
+            '78',
+        imageUrl: "https://via.placeholder.com/150",
+        brand: "Cipila"),
     Product(
         name: "Paracetamol",
-        description: " It is used for pain relief and fever reduction..",
-        imageUrl: "https://via.placeholder.com/150"),
+        price: '10',
+        imageUrl: "https://via.placeholder.com/150",
+        brand: "Lupin"),
     Product(
         name: "Xanax",
-        description:
-            "It is a benzodiazepine medication used to treat anxiety and panic disorders.",
-        imageUrl: "https://via.placeholder.com/150"),
+        price:
+            '20',
+        imageUrl: "https://via.placeholder.com/150",
+        brand: "Mankind"),
     Product(
         name: "Nexium",
-        description:
-            "It is a proton pump inhibitor (PPI) medication used to treat gastroesophageal reflux disease (GERD) and other conditions related to excess stomach acid.",
-        imageUrl: "https://via.placeholder.com/150"),
+        price:
+            '30',
+        imageUrl: "https://via.placeholder.com/150",
+        brand: "Zota"),
     Product(
         name: "Crestor",
-        description:
-            "It is used to lower cholesterol levels and reduce the risk of heart attack and stroke.",
-        imageUrl: "https://via.placeholder.com/150"),
+        price:
+            '75',
+        imageUrl: "https://via.placeholder.com/150",
+        brand: "Cipila"),
     Product(
         name: "Abilify",
-        description:
-            "It is an antipsychotic medication used to treat schizophrenia, bipolar disorder, and major depressive disorder.",
-        imageUrl: "https://via.placeholder.com/150"),
+        price:
+            '195',
+        imageUrl: "https://via.placeholder.com/150",
+        brand: "Mankind"),
     Product(
         name: "Prozac",
-        description:
-            "a medication used to treat high blood pressure and fluid retention",
-        imageUrl: "https://via.placeholder.com/150"),
+        price:
+            '135',
+        imageUrl: "https://via.placeholder.com/150",
+        brand: "Triokka"),
   ];
 
   List<Product> filteredProducts = [];
@@ -145,10 +156,11 @@ class _SearchPageState extends State<SearchPage> {
                 return ListTile(
                   leading: Image.asset('assets/tablet.jpg'),
                   title: Text(filteredProducts[index].name),
-                  subtitle: Text(filteredProducts[index].description),
+                  subtitle: Text(filteredProducts[index].brand),
+                  trailing: Text(filteredProducts[index].price),
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => ProductPage(description: filteredProducts[index].description, imageUrl: '', name: filteredProducts[index].name,)));
+                        MaterialPageRoute(builder: (context) => ProductPage(description: filteredProducts[index].price, imageUrl: '', name: filteredProducts[index].name,)));
                   },
                 );
               },

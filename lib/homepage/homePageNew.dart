@@ -4,14 +4,21 @@ import 'package:PharMa/history/history.dart';
 import 'package:PharMa/homepage/drawer.dart';
 import 'package:PharMa/sell/sell_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class MyHomePage extends StatefulWidget {
+
+
+  
   @override
   _MyHomePageState createState() => new _MyHomePageState();
+  
+  
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  User? user = FirebaseAuth.instance.currentUser;
+  // User? user = FirebaseAuth.instance.currentUser;
+  late GoogleSignInAccount user;
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -63,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             height: _height / 30,
                           ),
                           Text(
-                            'Hello ${user!.displayName}!',
+                            'Hello SARANSH BHATNAGAR!',
                             style: TextStyle(
                                 fontSize: 18.0,
                                 color: Colors.white,
@@ -90,9 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           padding: EdgeInsets.only(top: _height / 10),
                           child: Column(
                             children: <Widget>[
-                              infoChild(_width, Icons.email,
-                                  user!.email),
-                              infoChild(_width, Icons.call, user!.phoneNumber),
+                              infoChild(_width, Icons.email, 'saranshbai20@svvv.edu.in'),
+                              infoChild(_width, Icons.call, "+91-9827084169"),
                               Column(
                                 children: [
                                   InkWell(

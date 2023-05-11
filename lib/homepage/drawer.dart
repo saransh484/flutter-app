@@ -1,3 +1,4 @@
+import 'package:PharMa/login/loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:PharMa/Search/search_page.dart';
@@ -13,7 +14,8 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
-  User? user = FirebaseAuth.instance.currentUser;
+  // User? user = FirebaseAuth.instance.currentUser;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -26,11 +28,11 @@ class _DrawerScreenState extends State<DrawerScreen> {
               ), //BoxDecoration
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.blueAccent),
-                accountName: Text(
-                  "${user!.displayName}",
+                accountName: Text("SARANSH BHATNAGAR",
+                  //"${user!.displayName}",
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: Text('${user!.email}'),
+                accountEmail: Text("saranshbai20@svvv.edu.in"),
                 currentAccountPictureSize: Size.square(50),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage('assets/image.png'),
@@ -39,7 +41,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               ), //UserAccountDrawerHeader
             ), //DrawerHeader
             ListTile(
-              leading: const Icon(Icons.person),
+              leading: const Icon(Icons.attach_money),
               title: const Text('Revenue'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> RevenuePage()));
@@ -71,6 +73,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               title: const Text('Logout'),
               onTap: () {
                 FirebaseAuth.instance.signOut();
+                Navigator.pop(context, MaterialPageRoute(builder: (context)=> const LogScreen()));
               },
             ),
           ],
