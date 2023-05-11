@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
+
 class ProductPage extends StatefulWidget {
   final String name;
   final String description;
   final String imageUrl;
-
+  
   ProductPage(
       {required this.name, required this.description, required this.imageUrl});
 
@@ -15,10 +16,12 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
+
   final String name;
   final String description;
   final String imageUrl;
-  _ProductPageState(this.name, this.description, this.imageUrl);
+   _ProductPageState(this.name, this.description, this.imageUrl);
+
 
   int _rating = 0;
 
@@ -44,8 +47,7 @@ class _ProductPageState extends State<ProductPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Image.asset(
-              'assets/tablet.jpg',
+            child: Image.asset('assets/tablet.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -54,7 +56,7 @@ class _ProductPageState extends State<ProductPage> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children:[
                 Text(
                   name,
                   style: TextStyle(
