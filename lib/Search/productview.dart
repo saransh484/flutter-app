@@ -1,3 +1,4 @@
+import 'package:PharMa/checkout.dart';
 import 'package:flutter/material.dart';
 
 
@@ -83,7 +84,9 @@ class _ProductPageState extends State<ProductPage> {
                 child: const Text('Add to Cart'),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> CheckoutPage()));
+                },
                 child: const Text('Buy Now'),
               ),
             ],
