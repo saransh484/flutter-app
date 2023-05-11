@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:myapp/Search/productview_2.dart';
+import 'package:PharMa/Search/productview_2.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 

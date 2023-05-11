@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:myapp/Search/productview.dart';
+import 'package:PharMa/Search/productview.dart';
 
 class Product {
   final  name;

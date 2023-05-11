@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/Search/productview.dart';
-import 'package:myapp/Search/search_page.dart';
-import 'package:myapp/history/history.dart';
-import 'package:myapp/homepage/drawer.dart';
-import 'package:myapp/sell/sell_page.dart';
+import 'package:PharMa/Search/productview.dart';
+import 'package:PharMa/Search/search_page.dart';
+import 'package:PharMa/history/history.dart';
+import 'package:PharMa/homepage/drawer.dart';
+import 'package:PharMa/sell/sell_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage(
-      {super.key,
-      required this.title,
-      required this.name,
-      required this.email});
-
-  final String title;
-  final String name;
-  final String email;
-
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }

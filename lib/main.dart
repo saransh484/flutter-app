@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:myapp/login/mainpage.dart';
+import 'package:PharMa/login/mainpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
