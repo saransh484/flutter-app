@@ -1,100 +1,88 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: CheckoutPage(),
-    ),
-  );
-}
-
 class CheckoutPage extends StatefulWidget {
   @override
   _CheckoutPageState createState() => _CheckoutPageState();
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
-  final _formKey = GlobalKey<FormState>();
-  late String _name;
-  late String _address;
-  late String _phone;
-  late String _couponCode;
-  double _totalBillAmount = 0.0;
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _addressController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
+  TextEditingController _couponController = TextEditingController();
+
+  double _totalAmount = 0.0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Checkout'),
+        title: Text('Checkout Page'),
       ),
-      body: Form(
-        key: _formKey,
+      body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
-            children: <Widget>[
-              TextFormField(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                'Checkout Details',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 16.0),
+              TextField(
+                controller: _nameController,
                 decoration: InputDecoration(
                   labelText: 'Name',
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  _name = value!;
-                },
               ),
-              TextFormField(
+              SizedBox(height: 8.0),
+              TextField(
+                controller: _addressController,
                 decoration: InputDecoration(
                   labelText: 'Address',
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your address';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  _address = value!;
-                },
               ),
-              TextFormField(
+              SizedBox(height: 8.0),
+              TextField(
+                controller: _phoneController,
                 decoration: InputDecoration(
                   labelText: 'Phone Number',
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your phone number';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  _phone = value!;
-                },
+                keyboardType: TextInputType.phone,
               ),
+              SizedBox(height: 16.0),
               TextField(
+                controller: _couponController,
                 decoration: InputDecoration(
                   labelText: 'Coupon Code',
                 ),
-                onSubmitted: (value) {
-                  _applyCouponCode(value);
-                },
               ),
-              Text(
-                'Total Bill Amount: \$${_totalBillAmount}',
-                style: TextStyle(fontSize: 20.0),
-              ),
-              RaisedButton(
-                child: Text('Submit'),
+              SizedBox(height: 16.0),
+              ElevatedButton(
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    // TODO: Submit the checkout form
-                  }
+                  // Apply Coupon Code logic
+                  // Calculate Total Bill logic
                 },
+                child: Text('Apply Coupon'),
+              ),
+              SizedBox(height: 16.0),
+              Text(
+                'Total Bill: \$$_totalAmount',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Checkout button logic
+                },
+                child: Text('Checkout'),
               ),
             ],
           ),
@@ -102,10 +90,4 @@ class _CheckoutPageState extends State<CheckoutPage> {
       ),
     );
   }
-
-  void _applyCouponCode(String couponCode) {
-    // TODO: Apply the coupon code
-  }
 }
-
-RaisedButton({required Text child, required Null Function() onPressed}) {}
