@@ -23,28 +23,28 @@ class _DrawerScreenState extends State<DrawerScreen> {
           padding: const EdgeInsets.all(0),
           children: [
             DrawerHeader(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.blueAccent,
               ), //BoxDecoration
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.blueAccent),
                 accountName: Text(
-                  '${user!.displayName}',
+                  "${user!.displayName}",
                   style: TextStyle(fontSize: 18),
                 ),
                 accountEmail: Text('${user!.email}'),
                 currentAccountPictureSize: Size.square(50),
-                currentAccountPicture: const CircleAvatar(
+                currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage('assets/image.png'),
                   radius: 5,
                 ), //circleAvatar
               ), //UserAccountDrawerHeader
             ), //DrawerHeader
             ListTile(
-              leading: const Icon(Icons.money_sharp),
-              title: const Text(' Revenue '),
+              leading: const Icon(Icons.person),
+              title: const Text('Revenue'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>  RevenuePage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> RevenuePage()));
               },
             ),
             ListTile(
