@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:PharMa/Search/productview.dart';
 import 'package:PharMa/Search/search_page.dart';
 import 'package:PharMa/history/history.dart';
 import 'package:PharMa/homepage/drawer.dart';
 import 'package:PharMa/sell/sell_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -42,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           MaterialPageRoute(
                               builder: (context) => HistoryPage()));
                     },
+                    
                   )
                 ]
                 )),
