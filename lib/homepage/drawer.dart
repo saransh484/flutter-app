@@ -2,10 +2,16 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+<<<<<<< HEAD
 import 'package:PharMa/Search/search_page.dart';
 import 'package:PharMa/history/history.dart';
 import 'package:PharMa/revenue/revenue.dart';
 import 'package:PharMa/sell/sell_page.dart';
+=======
+import 'package:myapp/Search/search_page.dart';
+import 'package:myapp/history/history.dart';
+import 'package:myapp/sell/sell_page.dart';
+>>>>>>> parent of 33bf45f (added dynamic user details and new revenue page)
 
 class DrawerScreen extends StatefulWidget {
   const DrawerScreen({super.key});
@@ -15,36 +21,35 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
-  User? user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Drawer(
         child: ListView(
           padding: const EdgeInsets.all(0),
           children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(
+            const DrawerHeader(
+              decoration: BoxDecoration(
                 color: Colors.blueAccent,
               ), //BoxDecoration
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.blueAccent),
                 accountName: Text(
-                  '${user!.displayName}',
+                  "Saransh Bhatnagar",
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: Text('${user!.email}'),
+                accountEmail: Text("saranshbai20@svvv.edu.in"),
                 currentAccountPictureSize: Size.square(50),
-                currentAccountPicture: const CircleAvatar(
+                currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage('assets/image.png'),
                   radius: 5,
                 ), //circleAvatar
               ), //UserAccountDrawerHeader
             ), //DrawerHeader
             ListTile(
-              leading: const Icon(Icons.money_sharp),
-              title: const Text(' Revenue '),
+              leading: const Icon(Icons.person),
+              title: const Text(' My Profile '),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>  RevenuePage()));
+                Navigator.pop(context);
               },
             ),
             ListTile(

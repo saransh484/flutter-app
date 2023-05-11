@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:302407636766:android:423d8d1839f859600b1b0f",
         "android_client_info": {
-          "package_name": "com.example.pharma"
+          "package_name": "com.example.myapp"
         }
       },
       "oauth_client": [
@@ -34,7 +34,7 @@
               "client_id": "302407636766-3l7q77086b3p2645hn60740dbqlrdmbd.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.pharma"
+                "bundle_id": "com.example.myapp"
               }
             }
           ]

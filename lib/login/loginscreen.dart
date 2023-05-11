@@ -96,14 +96,14 @@ class _LogScreenState extends State<LogScreen> {
               ),
               const SizedBox(height: 15),
               Row(
-                children: const [
-                   Expanded(
+                children: [
+                  const Expanded(
                       child: Divider(
                     thickness: 0.7,
                     color: Colors.blueGrey,
                   )),
-                  Text('Or Login Using'),
-                  Expanded(
+                  const Text('Or Login Using'),
+                  const Expanded(
                       child: Divider(
                     thickness: 0.7,
                     color: Colors.blueGrey,
