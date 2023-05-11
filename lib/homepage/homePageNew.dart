@@ -1,21 +1,11 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:PharMa/Search/productview.dart';
 import 'package:PharMa/Search/search_page.dart';
 import 'package:PharMa/history/history.dart';
 import 'package:PharMa/homepage/drawer.dart';
 import 'package:PharMa/sell/sell_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-=======
-import 'package:myapp/Search/productview.dart';
-import 'package:myapp/Search/search_page.dart';
-import 'package:myapp/history/history.dart';
-import 'package:myapp/homepage/drawer.dart';
-import 'package:myapp/sell/sell_page.dart';
-<<<<<<< HEAD
->>>>>>> parent of 33bf45f (added dynamic user details and new revenue page)
-=======
->>>>>>> parent of 33bf45f (added dynamic user details and new revenue page)
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -23,6 +13,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  User? user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -72,8 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           SizedBox(
                             height: _height / 30,
                           ),
-                          const Text(
-                            'Saransh Bhatnagar',
+                          Text(
+                            'Hello ${user!.displayName}!',
                             style: TextStyle(
                                 fontSize: 18.0,
                                 color: Colors.white,
@@ -101,8 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Column(
                             children: <Widget>[
                               infoChild(_width, Icons.email,
-                                  'saranshbai20@svvv.edu.in'),
-                              infoChild(_width, Icons.call, '+91-9827084169'),
+                                  user!.email),
+                              infoChild(_width, Icons.call, user!.phoneNumber),
                               Column(
                                 children: [
                                   InkWell(

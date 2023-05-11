@@ -15,23 +15,24 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
+  User? user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Drawer(
         child: ListView(
           padding: const EdgeInsets.all(0),
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.blueAccent,
               ), //BoxDecoration
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.blueAccent),
                 accountName: Text(
-                  "Saransh Bhatnagar",
+                  "${user!.displayName}",
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: Text("saranshbai20@svvv.edu.in"),
+                accountEmail: Text('${user!.email}'),
                 currentAccountPictureSize: Size.square(50),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage('assets/image.png'),
@@ -41,9 +42,9 @@ class _DrawerScreenState extends State<DrawerScreen> {
             ), //DrawerHeader
             ListTile(
               leading: const Icon(Icons.person),
-              title: const Text(' My Profile '),
+              title: const Text('Revenue'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> RevenuePage()));
               },
             ),
             ListTile(
