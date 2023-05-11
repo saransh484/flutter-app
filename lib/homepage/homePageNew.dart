@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Search/productview.dart';
 import 'package:myapp/Search/search_page.dart';
+import 'package:myapp/history/history.dart';
 import 'package:myapp/homepage/drawer.dart';
 import 'package:myapp/sell/sell_page.dart';
 
@@ -39,17 +40,17 @@ class _MyHomePageState extends State<MyHomePage> {
             appBar: PreferredSize(
                 preferredSize: Size.fromHeight(50.0), // here the desired height
                 child: AppBar(
-                //   actions: <Widget>[
-                //   InkWell(
-                //     child: Icon(Icons.search),
-                //     onTap: () {
-                //       Navigator.push(
-                //           context,
-                //           MaterialPageRoute(
-                //               builder: (context) => SearchPage()));
-                //     },
-                //   )
-                // ]
+                  actions: <Widget>[
+                  InkWell(
+                    child: Icon(Icons.history),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HistoryPage()));
+                    },
+                  )
+                ]
                 )),
             backgroundColor: Colors.transparent,
             body: Container(
