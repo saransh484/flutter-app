@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/Search/search_page.dart';
 import 'package:myapp/history/history.dart';
+import 'package:myapp/revenue/revenue.dart';
 import 'package:myapp/sell/sell_page.dart';
 
 class DrawerScreen extends StatefulWidget {
@@ -14,35 +15,36 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
+  User? user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Drawer(
         child: ListView(
           padding: const EdgeInsets.all(0),
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
+            DrawerHeader(
+              decoration: const BoxDecoration(
                 color: Colors.blueAccent,
               ), //BoxDecoration
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.blueAccent),
                 accountName: Text(
-                  "Saransh Bhatnagar",
+                  '${user!.displayName}',
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: Text("saranshbai20@svvv.edu.in"),
+                accountEmail: Text('${user!.email}'),
                 currentAccountPictureSize: Size.square(50),
-                currentAccountPicture: CircleAvatar(
+                currentAccountPicture: const CircleAvatar(
                   backgroundImage: AssetImage('assets/image.png'),
                   radius: 5,
                 ), //circleAvatar
               ), //UserAccountDrawerHeader
             ), //DrawerHeader
             ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text(' My Profile '),
+              leading: const Icon(Icons.money_sharp),
+              title: const Text(' Revenue '),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>  RevenuePage()));
               },
             ),
             ListTile(

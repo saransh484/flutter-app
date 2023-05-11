@@ -4,6 +4,7 @@ import 'package:myapp/Search/search_page.dart';
 import 'package:myapp/history/history.dart';
 import 'package:myapp/homepage/drawer.dart';
 import 'package:myapp/sell/sell_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage(
@@ -21,6 +22,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  User? user = FirebaseAuth.instance.currentUser;
+  
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -70,9 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           SizedBox(
                             height: _height / 30,
                           ),
-                          const Text(
-                            'Saransh Bhatnagar',
-                            style: TextStyle(
+                          Text(
+                            'Hello ${user!.displayName}!', // name
+                            style: const TextStyle(
                                 fontSize: 18.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
@@ -98,9 +101,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           padding: EdgeInsets.only(top: _height / 10),
                           child: Column(
                             children: <Widget>[
-                              infoChild(_width, Icons.email,
-                                  'saranshbai20@svvv.edu.in'),
-                              infoChild(_width, Icons.call, '+91-9827084169'),
+                              infoChild(_width, Icons.email, user!.email),
+                              infoChild(_width, Icons.call, user!.phoneNumber),
                               Column(
                                 children: [
                                   InkWell(
