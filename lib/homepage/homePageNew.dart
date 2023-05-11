@@ -12,6 +12,9 @@ import 'package:myapp/Search/search_page.dart';
 import 'package:myapp/history/history.dart';
 import 'package:myapp/homepage/drawer.dart';
 import 'package:myapp/sell/sell_page.dart';
+<<<<<<< HEAD
+>>>>>>> parent of 33bf45f (added dynamic user details and new revenue page)
+=======
 >>>>>>> parent of 33bf45f (added dynamic user details and new revenue page)
 
 class MyHomePage extends StatefulWidget {

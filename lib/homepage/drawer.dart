@@ -2,16 +2,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-<<<<<<< HEAD
 import 'package:PharMa/Search/search_page.dart';
 import 'package:PharMa/history/history.dart';
 import 'package:PharMa/revenue/revenue.dart';
 import 'package:PharMa/sell/sell_page.dart';
-=======
-import 'package:myapp/Search/search_page.dart';
-import 'package:myapp/history/history.dart';
-import 'package:myapp/sell/sell_page.dart';
->>>>>>> parent of 33bf45f (added dynamic user details and new revenue page)
 
 class DrawerScreen extends StatefulWidget {
   const DrawerScreen({super.key});
